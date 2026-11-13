@@ -298,5 +298,12 @@ def start_over(state: State) -> Page:
     state.plan = []
     return index(state)
     
+# tests
+assert_equal(diet_ok(Food("Bacon", "Meat", 3.5), "Vegan"), False)
+assert_equal(diet_ok(Food("Oatmeal", "Grain", 2.5), "Vegan"), True)
+assert_equal(diet_ok(Food("Bacon", "Meat", 3.5), "Mediterranean"), False)
+assert_equal(parse_budget("12.50"), 12.5)
+assert_equal(parse_budget("abc"), -1.0)
+assert_equal(total_cost([Food("A", "Grain", 1.5), Food("B", "Meat", 2.0)]), 3.5)
 
 start_server(State("Breakfast", [], 0.0, "No diet", "", []))
